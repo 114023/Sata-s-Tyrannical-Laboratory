@@ -43,18 +43,31 @@
     <script>
         function scrambleText() {
             var inputText = document.getElementById('inputText').value;
-            var scrambledText = scrambleWords(inputText);
+            var scrambledText = scramble(inputText);
             document.getElementById('scrambledText').innerText = 'Scrambled Text: ' + scrambledText;
         }
 
-        function scrambleWords(str) {
-            var words = str.split(/\s+/); // Split the input into an array of words
-            for (var i = 0; i < words.length; i++) {
-                if (words[i].length > 1) {
-                    words[i] = shuffleString(words[i]);
+        function scramble(str) {
+            var characters = str.split('');
+            var nonAlphaNumeric = [];
+            
+            // Store the positions of symbols and spaces
+            characters.forEach(function(char, index) {
+                if (!char.match(/[a-zA-Z]/)) {
+                    nonAlphaNumeric.push({ char: char, index: index });
+                    characters[index] = ''; // Remove symbols and spaces for scrambling
                 }
-            }
-            return words.join(' ');
+            });
+
+            // Scramble the alphanumeric characters
+            var scrambledAlphanumeric = shuffleString(characters.join(''));
+
+            // Place symbols and spaces back in their original positions
+            nonAlphaNumeric.forEach(function(item) {
+                scrambledAlphanumeric = scrambledAlphanumeric.slice(0, item.index) + item.char + scrambledAlphanumeric.slice(item.index);
+            });
+
+            return scrambledAlphanumeric;
         }
 
         function shuffleString(str) {
