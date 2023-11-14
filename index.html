@@ -1,86 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Scrambler</title>
+    <title>Sata’s Tyrannical Laboratory</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
             text-align: center;
-            margin: 50px;
+            color: #333;
         }
 
-        #inputText {
-            width: 300px;
-            padding: 10px;
-            font-size: 16px;
+        p {
+            text-indent: 1.5em;
+            margin: 10px 0;
+            color: #333;
         }
 
-        #scrambleButton {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        #scrambledText {
-            margin-top: 20px;
-            font-size: 18px;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>Sata’s Tyrannical Laboratory</h1>
+        <p><strong>Graeson Beatty</strong></p>
+        <p><strong>Ms. Truitt</strong></p>
+        <p><strong>English 09</strong></p>
+        <p><strong>07 November 2023</strong></p>
 
-    <h1>Text Scrambler</h1>
+        <p>
+            BAM! BpongeSob and Fatrick had fallen to Rock Bottom, luckily they weren't hurt. All they needed was a way out, but the bus station closed due to a snail-eating barnacle infestation. Petah and I witnessed this unfold while watching the fourth episode of BpongeSob Season twenty-five in 3D using our Sata Quest 4's. Sata was the company behind the Quest series, and they were run by Zark Muckerburg, who had acquired more and more companies each month. Petah and I were surprised they didn't own the world at that point. The summer days had kept getting hotter in Pennsylvania, and at Petah's house there was no air conditioning. The year 2032 had been one of the hottest on record, so I wasn't really surprised by the heat waves but I really wanted an excuse to go somewhere other than there. This was around the time of the official Sata Quest 5 announcement. It had started with a base price of $699. We had both been eager to upgrade our gear. While we were watching BongeSob, both of our Eyon Tusk BrainLink chips rang simultaneously. We decided to answer it despite our data plan running low. Turns out it was a call from representatives of Zark Muckerburg's company, Sata. They explained to me and Petah that we had been selected to participate in the new closed beta for the Sata Quest 5 Virtual Reality headset, which was a staple of modern technology. Petah was skeptical as always, but I was eager the moment my BrainLink understood what was happening. We both agreed and entered the destination code provided by the representatives into our matter transporter. Just before going through the matter transporter, our shared data plan ran out. We bickered on who used the most data. 
+        </p>
+        <p>
+            I exclaimed, “You never let me call my friends, so YOU used the data!"
+	To which he responded in a sincere yet firm voice, “You call and text them behind my back, so you—"
 
-    <label for="inputText">Enter text:</label>
-    <input type="text" id="inputText" placeholder="Type something...">
+        </p>
 
-    <button id="scrambleButton" onclick="scrambleText()">Scramble Text</button>
-
-    <div id="scrambledText"></div>
-
-    <script>
-        function scrambleText() {
-            var inputText = document.getElementById('inputText').value;
-            var scrambledText = scramble(inputText);
-            document.getElementById('scrambledText').innerText = 'Scrambled Text: ' + scrambledText;
-        }
-
-        function scramble(str) {
-            var characters = str.split('');
-            var nonAlphaNumeric = [];
-            
-            // Store the positions of symbols and spaces
-            characters.forEach(function(char, index) {
-                if (!char.match(/[a-zA-Z]/)) {
-                    nonAlphaNumeric.push({ char: char, index: index });
-                    characters[index] = ''; // Remove symbols and spaces for scrambling
-                }
-            });
-
-            // Scramble the alphanumeric characters
-            var scrambledAlphanumeric = shuffleString(characters.join(''));
-
-            // Place symbols and spaces back in their original positions
-            nonAlphaNumeric.forEach(function(item) {
-                scrambledAlphanumeric = scrambledAlphanumeric.slice(0, item.index) + item.char + scrambledAlphanumeric.slice(item.index);
-            });
-
-            return scrambledAlphanumeric;
-        }
-
-        function shuffleString(str) {
-            var array = str.split('');
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-            return array.join('');
-        }
-    </script>
-
+    </div>
 </body>
+
 </html>
