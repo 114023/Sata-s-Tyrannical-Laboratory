@@ -3,65 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Adventure</title>
+  <title>Sata Quest 5 Adventure</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      font-family: 'Arial', sans-serif;
     }
-    button {
-      font-size: 16px;
-      margin-bottom: 10px;
+    .plot-element {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<button onclick="revealText('Sata Quest 5 Beta Adventure')">Sata Quest 5 Beta Adventure</button>
-<div id="text1" style="display: none;">
-  <p>Petah and the narrator receive a surprise invitation from Sata, owned by Zark Muckerburg, to participate in the closed beta for the Sata Quest 5 Virtual Reality headset.</p>
-</div>
+<p>
+  <span class="plot-element" onclick="readText('Exposition')">Exposition:</span>
+  BAM! BpongeSob and Fatrick had fallen to Rock Bottom, luckily they weren't hurt. All they needed was a way out, but the bus station closed due to a snail-eating barnacle infestation. Petah and I witnessed this unfold while watching the fourth episode of BpongeSob Season twenty-five in 3D using our Sata Quest 4's.
+</p>
 
-<button onclick="revealText('Challenges at Sata Lab')">Challenges at Sata Lab</button>
-<div id="text2" style="display: none;">
-  <p>The duo, guided by the Unknown Narrator, faces intricate puzzles and learns that the final boss is Zark Muckerburg himself, setting the stage for an unexpected showdown.</p>
-</div>
+<p>
+  <span class="plot-element" onclick="readText('Rising')">Rising Action:</span>
+  The summer days had kept getting hotter in Pennsylvania, and at Petah's house, there was no air conditioning. The year 2032 had been one of the hottest on record, so I wasn't really surprised by the heat waves but I really wanted an excuse to go somewhere other than there. This was around the time of the official Sata Quest 5 announcement.
+</p>
 
-<button onclick="revealText('Epic Digital Battle')">Epic Digital Battle</button>
-<div id="text3" style="display: none;">
-  <p>Navigating through complex levels, discovering cheat codes, and facing off against Zark, Petah and the narrator showcase teamwork and determination, ultimately shattering Zark's control over the digital realm.</p>
-</div>
+<p>
+  <span class="plot-element" onclick="readText('Climax')">Climax:</span>
+  As we delved deeper into the facility, the puzzles became increasingly complex, and we learned the importance of using our two hints per level. Along the way, we discovered hidden cheat codes left by previous participants and sympathetic developers, adding an element of mystery to our adventure.
+</p>
 
-<button onclick="revealText('Revelation and Victory')">Revelation and Victory</button>
-<div id="text4" style="display: none;">
-  <p>The explosion of their headsets signifies the end of the battle, liberating companies from Zark's influence. Under Wichael Molber's leadership, the world enters a new era of innovation, free from the threat of a robot or lizard uprising.</p>
-</div>
+<p>
+  <span class="plot-element" onclick="readText('Falling')">Falling Action:</span>
+  The Unknown Narrator had been abruptly cut off right before revealing the name "Zar," and given the context that the creator of the Sata Quest console series is Zark Muckerburg, with allegations surrounding his true identity as a lizard person, it was evident that the final boss was none other than Zark Muckerburg himself!
+</p>
 
-<button onclick="revealText('Celebration and Balance')">Celebration and Balance</button>
-<div id="text5" style="display: none;">
-  <p>Post-victory, Petah and the narrator practice their VR skills, celebrating their triumph and the restored balance in the digital world. The Sata company rebrands as Barackulous, bringing a positive transformation to the gaming industry.</p>
-</div>
+<p>
+  <span class="plot-element" onclick="readText('Resolution')">Resolution:</span>
+  Our victory had ensured that the world remained safe from the looming threat of a robot or lizard uprising, and a new era of balance and innovation flourished. To end the long day, Petah and I practiced our skills in our favorite VR games before school the next day.
+</p>
 
 <script>
-  function revealText(buttonId) {
-    var buttonText = document.getElementById(buttonId);
-    var textId = 'text' + buttonId.slice(-1);
-    var text = document.getElementById(textId);
-
-    if (text.style.display === "none") {
-      text.style.display = "block";
-      speak(text.textContent);
-    } else {
-      text.style.display = "none";
+  function readText(element) {
+    var text = '';
+    switch (element) {
+      case 'Exposition':
+        text = "BAM! BpongeSob and Fatrick had fallen to Rock Bottom, luckily they weren't hurt. All they needed was a way out, but the bus station closed due to a snail-eating barnacle infestation. Petah and I witnessed this unfold while watching the fourth episode of BpongeSob Season twenty-five in 3D using our Sata Quest 4's.";
+        break;
+      case 'Rising':
+        text = "The summer days had kept getting hotter in Pennsylvania, and at Petah's house, there was no air conditioning. The year 2032 had been one of the hottest on record, so I wasn't really surprised by the heat waves but I really wanted an excuse to go somewhere other than there. This was around the time of the official Sata Quest 5 announcement.";
+        break;
+      case 'Climax':
+        text = "As we delved deeper into the facility, the puzzles became increasingly complex, and we learned the importance of using our two hints per level. Along the way, we discovered hidden cheat codes left by previous participants and sympathetic developers, adding an element of mystery to our adventure.";
+        break;
+      case 'Falling':
+        text = "The Unknown Narrator had been abruptly cut off right before revealing the name 'Zar,' and given the context that the creator of the Sata Quest console series is Zark Muckerburg, with allegations surrounding his true identity as a lizard person, it was evident that the final boss was none other than Zark Muckerburg himself!";
+        break;
+      case 'Resolution':
+        text = "Our victory had ensured that the world remained safe from the looming threat of a robot or lizard uprising, and a new era of balance and innovation flourished. To end the long day, Petah and I practiced our skills in our favorite VR games before school the next day.";
+        break;
     }
-  }
-
-  function speak(text) {
-    // Add text-to-speech functionality here using a TTS library or API
-    // Example: Use the Web Speech API for simplicity
-    var synth = window.speechSynthesis;
-    var utterance = new SpeechSynthesisUtterance(text);
-    synth.speak(utterance);
+    var speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.8; // Adjust the reading pace
+    window.speechSynthesis.speak(speech);
   }
 </script>
 
