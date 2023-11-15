@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sata Quest 5 Adventure</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-    }
-    .plot-element {
-      cursor: pointer;
-      color: blue;
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading Text Box Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .exampleLine {
+            margin-bottom: 20px;
+        }
+
+        .exampleButton {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .exampleTextBox {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 
-<p>
-  <span class="plot-element" onclick="readText('Exposition')">Exposition:</span>
-  BAM! BpongeSob and Fatrick had fallen to Rock Bottom, luckily they weren't hurt. All they needed was a way out, but the bus station closed due to a snail-eating barnacle infestation. Petah and I witnessed this unfold while watching the fourth episode of BpongeSob Season twenty-five in 3D using our Sata Quest 4's.
-</p>
+<div class="exampleLine">
+    <button class="exampleButton" onclick="toggleTextBox(this)">The Invitation...</button>
+    <div class="exampleTextBox">Petah and the narrator were watching BongeSob on their Sata Quest 4’s.The year was 2032, one of the hottest years recorded. They were invited to test the Sata Quest 5 prototype at Sata’s lab. They broke out into an argument over who used dada which was resolved quickly.</div>
+</div>
 
-<p>
-  <span class="plot-element" onclick="readText('Rising')">Rising Action:</span>
-  The summer days had kept getting hotter in Pennsylvania, and at Petah's house, there was no air conditioning. The year 2032 had been one of the hottest on record, so I wasn't really surprised by the heat waves but I really wanted an excuse to go somewhere other than there. This was around the time of the official Sata Quest 5 announcement.
-</p>
+<div class="exampleLine">
+    <button class="exampleButton" onclick="toggleTextBox(this)">First Step...</button>
+    <div class="exampleTextBox">Petah and the narrator were in awe of the modern facility. Inside the modern facility, they wore Quest 5 headsets after submitting their defeat as the password. Transported to the first chamber, the realistic experience began, and hints were available.</div>
+</div>
 
-<p>
-  <span class="plot-element" onclick="readText('Climax')">Climax:</span>
-  As we delved deeper into the facility, the puzzles became increasingly complex, and we learned the importance of using our two hints per level. Along the way, we discovered hidden cheat codes left by previous participants and sympathetic developers, adding an element of mystery to our adventure.
-</p>
+<div class="exampleLine">
+    <button class="exampleButton" onclick="toggleTextBox(this)">Battery Issues...</button>
+    <div class="exampleTextBox">Exploring further, the puzzles got complex, and they discovered cheat codes from previous participants. Despite the tough tests, the duo persevered, discouraged from taking breaks. The Unknown Narrator hinted at a final boss named "Zar," but static interrupted. Suspecting Zark Muckerburg as the boss, they used a cheat code to escape the game's constraints, revealing an eerie void. Their headsets signaled low battery, pushing them to use cheats to reach the boss fight.
+</div>
+</div>
+  
+<div class="exampleLine">
+    <button class="exampleButton" onclick="toggleTextBox(this)">Final Room...</button>
+    <div class="exampleTextBox">In the last room, facing Zark Muckerburg's control over digital companies, Petah and the narrator fought, enduring glitches. With defiant words, they challenged Zark and, as the headsets signaled battery failure, unleashed a coordinated attack, liberating the digital world from his control. The headsets exploded, but they emerged unharmed.
+</div>
+</div>
+  
+<div class="exampleLine">
+    <button class="exampleButton" onclick="toggleTextBox(this)">Flawless Victory...</button>
+    <div class="exampleTextBox">Returning to Petah's house, they found positive changes. The Sata company rebranded to Barackulous, companies flourished independently, and Wichael Molber resumed leadership of the Quest series. Molber developed a revolutionary, player-friendly headset. The world was safe from threats, and balance and innovation flourished. The day ended with Petah and the narrator practicing VR games before school.
+</div>
 
-<p>
-  <span class="plot-element" onclick="readText('Falling')">Falling Action:</span>
-  The Unknown Narrator had been abruptly cut off right before revealing the name "Zar," and given the context that the creator of the Sata Quest console series is Zark Muckerburg, with allegations surrounding his true identity as a lizard person, it was evident that the final boss was none other than Zark Muckerburg himself!
-</p>
-
-<p>
-  <span class="plot-element" onclick="readText('Resolution')">Resolution:</span>
-  Our victory had ensured that the world remained safe from the looming threat of a robot or lizard uprising, and a new era of balance and innovation flourished. To end the long day, Petah and I practiced our skills in our favorite VR games before school the next day.
-</p>
 
 <script>
-  function readText(element) {
-    var text = '';
-    switch (element) {
-      case 'Exposition':
-        text = "BAM! BpongeSob and Fatrick had fallen to Rock Bottom, luckily they weren't hurt. All they needed was a way out, but the bus station closed due to a snail-eating barnacle infestation. Petah and I witnessed this unfold while watching the fourth episode of BpongeSob Season twenty-five in 3D using our Sata Quest 4's.";
-        break;
-      case 'Rising':
-        text = "The summer days had kept getting hotter in Pennsylvania, and at Petah's house, there was no air conditioning. The year 2032 had been one of the hottest on record, so I wasn't really surprised by the heat waves but I really wanted an excuse to go somewhere other than there. This was around the time of the official Sata Quest 5 announcement.";
-        break;
-      case 'Climax':
-        text = "As we delved deeper into the facility, the puzzles became increasingly complex, and we learned the importance of using our two hints per level. Along the way, we discovered hidden cheat codes left by previous participants and sympathetic developers, adding an element of mystery to our adventure.";
-        break;
-      case 'Falling':
-        text = "The Unknown Narrator had been abruptly cut off right before revealing the name 'Zar,' and given the context that the creator of the Sata Quest console series is Zark Muckerburg, with allegations surrounding his true identity as a lizard person, it was evident that the final boss was none other than Zark Muckerburg himself!";
-        break;
-      case 'Resolution':
-        text = "Our victory had ensured that the world remained safe from the looming threat of a robot or lizard uprising, and a new era of balance and innovation flourished. To end the long day, Petah and I practiced our skills in our favorite VR games before school the next day.";
-        break;
+    function toggleTextBox(button) {
+        const textBox = button.nextElementSibling;
+        textBox.style.display = (textBox.style.display === 'none' || textBox.style.display === '') ? 'block' : 'none';
     }
-    var speech = new SpeechSynthesisUtterance(text);
-    speech.rate = 0.8; // Adjust the reading pace
-    window.speechSynthesis.speak(speech);
-  }
+
+    function speakText(text) {
+        // Add your code here to read the text at a medium pace.
+        // This could involve using text-to-speech libraries or APIs.
+        // For simplicity, we are not implementing the actual speech functionality here.
+        console.log('Speaking:', text);
+    }
 </script>
 
 </body>
