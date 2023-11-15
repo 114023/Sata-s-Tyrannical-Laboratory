@@ -6,12 +6,16 @@
     <title>Fading Text Box Example</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 50px;
+            background-color: #f4f4f4;
         }
 
-        .exampleLine {
+        #buttonContainer {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
             margin-bottom: 20px;
         }
 
@@ -19,59 +23,73 @@
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .exampleButton:hover {
+            background-color: #2980b9;
+        }
+
+        #activeTextBoxContainer {
+            display: flex;
+            justify-content: center;
         }
 
         .exampleTextBox {
-            display: none;
-            margin-top: 10px;
+            opacity: 0;
             padding: 10px;
             font-size: 18px;
             border: 1px solid #ccc;
-            width: 200px;
+            width: 60%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .exampleTextBox.active {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-<div class="exampleLine">
-    <button class="exampleButton" onclick="toggleTextBox(this)">The Invitation...</button>
-    <div class="exampleTextBox">Petah and the narrator were watching BongeSob on their Sata Quest 4’s.The year was 2032, one of the hottest years recorded. They were invited to test the Sata Quest 5 prototype at Sata’s lab. They broke out into an argument over who used dada which was resolved quickly.</div>
+<div id="buttonContainer">
+    <button class="exampleButton" onclick="toggleTextBox(0)">The Invitation...</button>
+    <button class="exampleButton" onclick="toggleTextBox(1)">First Step...</button>
+    <button class="exampleButton" onclick="toggleTextBox(2)">Battery Issues...</button>
+    <button class="exampleButton" onclick="toggleTextBox(3)">Final Room...</button>
+    <button class="exampleButton" onclick="toggleTextBox(4)">Flawless Victory...</button>
 </div>
 
-<div class="exampleLine">
-    <button class="exampleButton" onclick="toggleTextBox(this)">First Step...</button>
-    <div class="exampleTextBox">Petah and the narrator were in awe of the modern facility. Inside the modern facility, they wore Quest 5 headsets after submitting their defeat as the password. Transported to the first chamber, the realistic experience began, and hints were available.</div>
+<div id="activeTextBoxContainer">
+    <div class="exampleTextBox" data-index="0">Petah and the narrator were watching BongeSob on their Sata Quest 4’s.The year was 2032, one of the hottest years recorded. They were invited to test the Sata Quest 5 prototype at Sata’s lab. They broke out into an argument over who used dada which was resolved quickly.</div>
+    <div class="exampleTextBox" data-index="1">Petah and the narrator were in awe of the modern facility. Inside the modern facility, they wore Quest 5 headsets after submitting their defeat as the password. Transported to the first chamber, the realistic experience began, and hints were available.</div>
+    <div class="exampleTextBox" data-index="2">Exploring further, the puzzles got complex, and they discovered cheat codes from previous participants. Despite the tough tests, the duo persevered, discouraged from taking breaks. The Unknown Narrator hinted at a final boss named "Zar," but static interrupted. Suspecting Zark Muckerburg as the boss, they used a cheat code to escape the game's constraints, revealing an eerie void. Their headsets signaled low battery, pushing them to use cheats to reach the boss fight.</div>
+    <div class="exampleTextBox" data-index="3">In the last room, facing Zark Muckerburg's control over digital companies, Petah and the narrator fought, enduring glitches. With defiant words, they challenged Zark and, as the headsets signaled battery failure, unleashed a coordinated attack, liberating the digital world from his control. The headsets exploded, but they emerged unharmed.</div>
+    <div class="exampleTextBox" data-index="4">Returning to Petah's house, they found positive changes. The Sata company rebranded to Barackulous, companies flourished independently, and Wichael Molber resumed leadership of the Quest series. Molber developed a revolutionary, player-friendly headset. The world was safe from threats, and balance and innovation flourished. The day ended with Petah and the narrator practicing VR games before school.</div>
 </div>
-
-<div class="exampleLine">
-    <button class="exampleButton" onclick="toggleTextBox(this)">Battery Issues...</button>
-    <div class="exampleTextBox">Exploring further, the puzzles got complex, and they discovered cheat codes from previous participants. Despite the tough tests, the duo persevered, discouraged from taking breaks. The Unknown Narrator hinted at a final boss named "Zar," but static interrupted. Suspecting Zark Muckerburg as the boss, they used a cheat code to escape the game's constraints, revealing an eerie void. Their headsets signaled low battery, pushing them to use cheats to reach the boss fight.
-</div>
-</div>
-  
-<div class="exampleLine">
-    <button class="exampleButton" onclick="toggleTextBox(this)">Final Room...</button>
-    <div class="exampleTextBox">In the last room, facing Zark Muckerburg's control over digital companies, Petah and the narrator fought, enduring glitches. With defiant words, they challenged Zark and, as the headsets signaled battery failure, unleashed a coordinated attack, liberating the digital world from his control. The headsets exploded, but they emerged unharmed.
-</div>
-</div>
-  
-<div class="exampleLine">
-    <button class="exampleButton" onclick="toggleTextBox(this)">Flawless Victory...</button>
-    <div class="exampleTextBox">Returning to Petah's house, they found positive changes. The Sata company rebranded to Barackulous, companies flourished independently, and Wichael Molber resumed leadership of the Quest series. Molber developed a revolutionary, player-friendly headset. The world was safe from threats, and balance and innovation flourished. The day ended with Petah and the narrator practicing VR games before school.
-</div>
-
 
 <script>
-    function toggleTextBox(button) {
-        const textBox = button.nextElementSibling;
-        textBox.style.display = (textBox.style.display === 'none' || textBox.style.display === '') ? 'block' : 'none';
-    }
+    function toggleTextBox(index) {
+        const allTextBoxes = document.querySelectorAll('.exampleTextBox');
+        const activeTextBox = allTextBoxes[index];
 
-    function speakText(text) {
-        // Add your code here to read the text at a medium pace.
-        // This could involve using text-to-speech libraries or APIs.
-        // For simplicity, we are not implementing the actual speech functionality here.
-        console.log('Speaking:', text);
+        allTextBoxes.forEach(textbox => {
+            textbox.classList.remove("active");
+        });
+
+        activeTextBox.classList.toggle("active");
     }
 </script>
 
